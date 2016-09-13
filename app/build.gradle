@@ -26,11 +26,30 @@ android {
     }
 }
 
+ext {
+    retrofitVersion = '2.1.0'
+    rxjavaVersion = '1.1.0'
+    supportVersion = '24.2.0'
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:24.2.0'
     testCompile 'junit:junit:4.12'
+
+
+    compile "com.android.support:appcompat-v7:$supportVersion"
+    compile "com.android.support:design:$supportVersion"
+    compile "com.android.support:recyclerview-v7:$supportVersion"
+
+
+    compile 'com.jakewharton.threetenabp:threetenabp:1.0.4'
+    compile "io.reactivex:rxjava:$rxjavaVersion"
+    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
+    compile 'io.reactivex:rxandroid:1.2.1'
+
 }
