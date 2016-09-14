@@ -1,6 +1,6 @@
 package br.gov.sc.cbm.e193comunitario.injection;
 
-import br.gov.sc.cbm.e193comunitario.domain.OccurenceRepository;
+import br.gov.sc.cbm.e193comunitario.domain.OccurrenceRepository;
 
 /**
  * Created by bonet on 9/13/16.
@@ -27,7 +27,7 @@ public class Injector implements Provider{
     private Provider provider;
 
     @Override
-    public OccurenceRepository provideOccurenceRepo() {
-        return provider.provideOccurenceRepo();
+    public OccurrenceRepository provideOccurrenceRepo() {
+        return provider.provideOccurrenceRepo();
     }
 }

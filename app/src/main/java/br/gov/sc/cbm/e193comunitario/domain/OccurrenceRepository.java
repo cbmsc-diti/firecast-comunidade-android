@@ -8,8 +8,8 @@ import rx.Observable;
  * Created by bonet on 9/13/16.
  */
 
-public interface OccurenceRepository {
+public interface OccurrenceRepository {
 
-    Observable<List<Occurence>> getOccurrences();
+    Observable<List<Occurrence>> getOccurrences();
 
 }

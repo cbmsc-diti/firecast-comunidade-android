@@ -9,13 +9,13 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="br.gov.sc.cbm.e193comunitario.presentation.screens.list.OccurenceListActivity">
+    tools:context="br.gov.sc.cbm.e193comunitario.presentation.screens.list.OccurrenceListActivity">
 
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/occurencelist__list">
+        android:id="@+id/occurrencelist__list">
 
     </android.support.v7.widget.RecyclerView>
 

@@ -1,6 +1,6 @@
 package br.gov.sc.cbm.e193comunitario.injection;
 
-import br.gov.sc.cbm.e193comunitario.domain.OccurenceRepository;
+import br.gov.sc.cbm.e193comunitario.domain.OccurrenceRepository;
 
 /**
  * Created by bonet on 9/13/16.
@@ -8,6 +8,6 @@ import br.gov.sc.cbm.e193comunitario.domain.OccurenceRepository;
 
 public interface Provider {
 
-    OccurenceRepository provideOccurenceRepo();
+    OccurrenceRepository provideOccurrenceRepo();
 
 }

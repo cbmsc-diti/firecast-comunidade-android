@@ -3,7 +3,7 @@ package br.gov.sc.cbm.e193comunitario.presentation;
 import android.app.Application;
 
 import br.gov.sc.cbm.e193comunitario.data.FirecastClient;
-import br.gov.sc.cbm.e193comunitario.domain.OccurenceRepository;
+import br.gov.sc.cbm.e193comunitario.domain.OccurrenceRepository;
 import br.gov.sc.cbm.e193comunitario.injection.Injector;
 import br.gov.sc.cbm.e193comunitario.injection.Provider;
 
@@ -24,7 +24,7 @@ public class FirecastApp extends Application {
     class AppProvider implements Provider {
 
         @Override
-        public OccurenceRepository provideOccurenceRepo() {
+        public OccurrenceRepository provideOccurrenceRepo() {
             return new FirecastClient();
         }
     }

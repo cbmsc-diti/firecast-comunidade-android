@@ -10,7 +10,7 @@ import org.threeten.bp.LocalTime;
  * Created by bonet on 9/13/16.
  */
 
-public class Occurence {
+public class Occurrence {
 
     @SerializedName("id_ocorrencia")
     public int id;

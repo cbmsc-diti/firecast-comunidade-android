@@ -1,7 +1,7 @@
-package br.gov.sc.cbm.e193comunitario.presentation.components.occurencelist;
+package br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist;
 
 
-import br.gov.sc.cbm.e193comunitario.domain.OccurenceRepository;
+import br.gov.sc.cbm.e193comunitario.domain.OccurrenceRepository;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -11,22 +11,22 @@ import rx.subscriptions.CompositeSubscription;
  * Created by bonet on 9/13/16.
  */
 
-public class OccurenceListPresenter implements OcurrenctListContract.Presenter {
+public class OccurrenceListPresenter implements OccurrenceListContract.Presenter {
 
-    private OcurrenctListContract.View view;
+    private OccurrenceListContract.View view;
 
-    private OccurenceRepository repo;
+    private OccurrenceRepository repo;
 
     private CompositeSubscription subs;
 
-    public OccurenceListPresenter(OccurenceRepository repo) {
+    public OccurrenceListPresenter(OccurrenceRepository repo) {
         this.repo = repo;
         subs = new CompositeSubscription();
 
     }
 
     @Override
-    public void attach(OcurrenctListContract.View v) {
+    public void attach(OccurrenceListContract.View v) {
 
         view = v;
 

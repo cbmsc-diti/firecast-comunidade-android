@@ -2,8 +2,7 @@ package br.gov.sc.cbm.e193comunitario.data;
 
 import java.util.List;
 
-import br.gov.sc.cbm.e193comunitario.domain.Occurence;
-import br.gov.sc.cbm.e193comunitario.domain.OccurenceRepository;
+import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
 import retrofit2.http.GET;
 import rx.Observable;
 
@@ -14,6 +13,6 @@ import rx.Observable;
 public interface FirecastApi {
 
     @GET("ocorrencias/fpolis")
-    Observable<List<Occurence>> getOccurrences();
+    Observable<List<Occurrence>> getOccurrences();
 
 }

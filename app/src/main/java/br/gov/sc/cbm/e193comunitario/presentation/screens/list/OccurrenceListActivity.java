@@ -7,31 +7,31 @@ import android.support.v7.widget.RecyclerView;
 
 import br.gov.sc.cbm.e193comunitario.R;
 import br.gov.sc.cbm.e193comunitario.injection.Injector;
-import br.gov.sc.cbm.e193comunitario.presentation.components.occurencelist.OccurenceListListView;
-import br.gov.sc.cbm.e193comunitario.presentation.components.occurencelist.OccurenceListPresenter;
-import br.gov.sc.cbm.e193comunitario.presentation.components.occurencelist.OcurrenctListContract;
+import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.OccurrenceListListView;
+import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.OccurrenceListPresenter;
+import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.OccurrenceListContract;
 
-public class OccurenceListActivity extends AppCompatActivity {
+public class OccurrenceListActivity extends AppCompatActivity {
 
-    private OccurenceListListView adapter;
+    private OccurrenceListListView adapter;
 
-    private OcurrenctListContract.Presenter listPresenter;
+    private OccurrenceListContract.Presenter listPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.occurencelist__activity);
+        setContentView(R.layout.occurrencelist__activity);
 
-        RecyclerView rv = (RecyclerView) findViewById(R.id.occurencelist__list);
+        RecyclerView rv = (RecyclerView) findViewById(R.id.occurrencelist__list);
 
 
         rv.setLayoutManager(new LinearLayoutManager(rv.getContext()));
 
-        adapter = new OccurenceListListView();
+        adapter = new OccurrenceListListView();
 
         rv.setAdapter(adapter);
 
-        listPresenter = new OccurenceListPresenter(Injector.get().provideOccurenceRepo());
+        listPresenter = new OccurrenceListPresenter(Injector.get().provideOccurrenceRepo());
         listPresenter.attach(adapter);
 
     }

@@ -8,21 +8,21 @@
     android:padding="8dp">
 
     <TextView
-        android:id="@+id/simpleoccurenceitem__id"
+        android:id="@+id/simpleoccurrenceitem__id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="12456"
         />
 
     <TextView
-        android:id="@+id/simpleoccurenceitem__type"
+        android:id="@+id/simpleoccurrenceitem__type"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="12456"
         />
 
     <TextView
-        android:id="@+id/simpleoccurenceitem__description"
+        android:id="@+id/simpleoccurrenceitem__description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="12456"
