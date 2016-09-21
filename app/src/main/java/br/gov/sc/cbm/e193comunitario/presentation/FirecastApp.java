@@ -23,9 +23,11 @@ public class FirecastApp extends Application {
 
     class AppProvider implements Provider {
 
+        private FirecastClient client;
+
         @Override
         public OccurrenceRepository provideOccurrenceRepo() {
-            return new FirecastClient();
+            return client = (client==null)? new FirecastClient():client;
         }
     }
 }
