@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#E67E22</color>
+    <color name="colorPrimaryDark">#E74C3C</color>
+    <color name="colorAccent">#F1C40D</color>
+
+    <array name="occurences">
+        <item>#C06158</item>
+        <item>#E77C71</item>
+        <item>#E8862F</item>
+        <item>#FFAA53</item>
+        <item>#FFD13E</item>
+        <item>#8EE67D</item>
+        <item>#49CE42</item>
+        <item>#2DC4AF</item>
+        <item>#55E5F2</item>
+        <item>#22B2E6</item>
+    </array>
+
 </resources>
