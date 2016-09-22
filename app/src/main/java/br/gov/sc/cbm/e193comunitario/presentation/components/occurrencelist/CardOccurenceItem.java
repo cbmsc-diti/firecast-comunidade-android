@@ -1,16 +1,8 @@
 package br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist;
 
 import android.content.res.Resources;
-import android.os.Build;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.util.SparseArray;
 import android.view.View;
-import android.view.animation.Interpolator;
 import android.widget.TextView;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import br.gov.sc.cbm.e193comunitario.R;
 import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
@@ -29,21 +21,6 @@ class CardOccurenceItem extends OccurenceItem {
     TextView type, hour, distance, location, reference, city, description, cars;
 
     View v;
-    private final SparseArray<Integer> colorMap = new SparseArray<Integer>() {
-        {
-            put(8,  R.color.occurrences_0);
-            put(5,  R.color.occurrences_1);
-            put(2,  R.color.occurrences_2);
-            put(10, R.color.occurrences_3);
-            put(11, R.color.occurrences_4);
-            put(9,  R.color.occurrences_5);
-            put(7,  R.color.occurrences_6);
-            put(1,  R.color.occurrences_7);
-            put(6,  R.color.occurrences_8);
-            put(3,  R.color.occurrences_9);
-            put(4,  R.color.occurrences_9);
-        }
-    };
 
     public CardOccurenceItem(View itemView) {
         super(itemView);
@@ -66,7 +43,8 @@ class CardOccurenceItem extends OccurenceItem {
         Resources res = v.getContext().getResources();
         type.setText(occ.type.name);
 
-        type.setBackgroundColor(res.getColor(colorMap.get(occ.type.id)));
+        // Seta a cor a partir do tipo de ocorrência
+        type.setBackgroundColor(res.getIntArray(R.array.occurence_colors)[occ.type.id- ((occ.type.id>=6)?2:1)]);
 
         if(occ.date == null)
             hour.setVisibility(View.GONE);
