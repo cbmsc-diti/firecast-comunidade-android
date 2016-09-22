@@ -6,58 +6,52 @@ import org.threeten.bp.LocalDate;
 import org.threeten.bp.LocalDateTime;
 import org.threeten.bp.LocalTime;
 
+import java.util.List;
+
 /**
  * Created by bonet on 9/13/16.
  */
 
 public class Occurrence {
 
-    @SerializedName("id_ocorrencia")
+    @SerializedName("id")
     public int id;
 
-    @SerializedName("dt_ocorrencia")
+    @SerializedName("ts")
     public String date;
 
-    @SerializedName("hora")
-    public String time;
-
-    @SerializedName("emergencia")
-    public String type;
+    @SerializedName("descricao")
+    public String description;
 
     @SerializedName("logradouro")
     public String adressStreet;
-
+    
     @SerializedName("numero")
-    public int addressNumber;
+    public Float addressNumber;
+
+    @SerializedName("complemento")
+    public String addressComplement;
 
     @SerializedName("bairro")
-    public String neighborhood;
-
-    @SerializedName("cidade")
-    public String city;
+    public String addressNeighborhood;
 
     @SerializedName("referencia")
-    public String referencePoint;
+    public String addressReferencePoint;
 
-    @SerializedName("chegada_ocorrencia")
-    public String arrivalTime;
+    @SerializedName("cidade")
+    public City city;
 
-    @SerializedName("saida_ocorrencia")
-    public String exitTime;
-    
-    @SerializedName("solicitante")
-    public String solicitantName;
+    @SerializedName("tipoEmergencia")
+    public OccurrenceType type;
 
-    @SerializedName("telefone_solicitante")
-    public long solicitantNumber;
+    @SerializedName("listViatura")
+    public List<Car> dispatchedCars;
 
-    @SerializedName("historico")
-    public String history;
-    
-    @SerializedName("orgao_apoio")
-    public String support;
 
-    @SerializedName("recursos_materiais")
-    public String materialResources;
+    @SerializedName("latitude")
+    public float latitude;
+
+    @SerializedName("longitude")
+    public float longitude;
 
 }

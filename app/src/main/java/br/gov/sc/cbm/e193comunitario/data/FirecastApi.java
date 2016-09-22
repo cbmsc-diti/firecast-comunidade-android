@@ -12,7 +12,7 @@ import rx.Observable;
 
 public interface FirecastApi {
 
-    @GET("ocorrencias/fpolis")
+    @GET("listar_ocorrencia_aberta_by_servidor_json.php?cidade=FLORIANOPOLIS")
     Observable<List<Occurrence>> getOccurrences();
 
 }

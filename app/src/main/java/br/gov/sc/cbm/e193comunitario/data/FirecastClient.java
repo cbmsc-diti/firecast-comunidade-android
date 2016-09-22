@@ -28,7 +28,7 @@ public class FirecastClient implements OccurrenceRepository {
 
     private FirecastApi buildApi() {
         return new Retrofit.Builder()
-                .baseUrl("http://aplicativosweb.cbm.sc.gov.br/api/defesacivil/")
+                .baseUrl("http://aplicativosweb.cbm.sc.gov.br/e193comunitario/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build()

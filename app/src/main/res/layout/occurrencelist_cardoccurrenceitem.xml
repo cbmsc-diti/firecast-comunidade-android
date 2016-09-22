@@ -12,7 +12,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
     >
 
     <LinearLayout
@@ -24,11 +23,28 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/simpleoccurrenceitem__type"
+            android:id="@+id/cardoccurrenceitem__type"
             tools:text="ACIDENTE DE TRÂNSITO"
-            android:background="@color/occurrences_0"
+            tools:background="@color/occurrences_0"
             android:padding="8dp"
             android:textColor="@color/white"
+            android:textStyle="bold"
+            android:height="48dp"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+
+            />
+
+
+        <TextView
+            android:id="@+id/cardoccurrenceitem__description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Lançado há 10 minutos"
+            android:padding="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:textSize="18sp"
             android:textStyle="bold"
             />
 
@@ -46,7 +62,7 @@
                 />
 
             <TextView
-                android:id="@+id/simpleoccurrenceitem__hour"
+                android:id="@+id/cardoccurrenceitem__hour"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="Lançado há 10 minutos"
@@ -57,6 +73,7 @@
 
 
         </RelativeLayout>
+
 
 
         <RelativeLayout
@@ -80,7 +97,7 @@
                 android:layout_toEndOf="@id/loc_image"
                 >
                 <TextView
-                    android:id="@+id/simpleoccurrenceitem__distance"
+                    android:id="@+id/cardoccurrenceitem__distance"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:text="Em 1.4 km"
@@ -90,7 +107,7 @@
 
 
                 <TextView
-                    android:id="@+id/simpleoccurrenceitem__location"
+                    android:id="@+id/cardoccurrenceitem__location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:text="JOAO GUALBERTO SOARES, RIO VERMELHO"
@@ -98,7 +115,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/simpleoccurrenceitem__reference"
+                    android:id="@+id/cardoccurrenceitem__reference"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:text="PROXIMO AO CAMPING DA CIDASC"
@@ -106,14 +123,38 @@
                     />
 
                 <TextView
-                    android:id="@+id/simpleoccurrenceitem__city"
+                    android:id="@+id/cardoccurrenceitem__city"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:text="Florianópolis"
                     android:padding="4dp"
                     />
-
             </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_directions_car_black_24dp"
+                android:id="@+id/car_image"
+                android:layout_marginRight="4dp"
+                />
+
+            <TextView
+                android:id="@+id/cardoccurrenceitem__cars"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="1 viatura a caminho"
+                android:padding="4dp"
+                android:layout_toRightOf="@id/car_image"
+                android:layout_toEndOf="@id/car_image"
+                />
+
         </RelativeLayout>
 
 
@@ -136,12 +177,6 @@
                 style="@style/Widget.AppCompat.Button.Borderless"/>
 
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            tools:background="@color/occurrences_0"/>
-
 
     </LinearLayout>
 </android.support.v7.widget.CardView>

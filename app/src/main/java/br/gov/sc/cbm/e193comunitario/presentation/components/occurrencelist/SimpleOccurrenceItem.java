@@ -32,9 +32,9 @@ class SimpleOccurrenceItem extends OccurenceItem {
     public void setOccurrence(Occurrence occ) {
         this.occ = occ;
 
-        typeView.setText(occ.type);
+        typeView.setText(occ.type.name);
         idView.setText("" + occ.id);
-        descriptionView.setText(occ.history);
+        descriptionView.setText(occ.description);
     }
 
 }
