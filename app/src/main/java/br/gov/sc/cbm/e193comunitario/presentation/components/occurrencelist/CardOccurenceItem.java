@@ -1,5 +1,7 @@
 package br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist;
 
+import android.content.res.Resources;
+import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.SparseArray;
@@ -60,8 +62,11 @@ class CardOccurenceItem extends OccurenceItem {
 
     public void setOccurrence(Occurrence occ) {
         this.occ = occ;
+
+        Resources res = v.getContext().getResources();
         type.setText(occ.type.name);
-        type.setBackgroundColor(v.getContext().getResources().getColor(colorMap.get(occ.type.id)));
+
+        type.setBackgroundColor(res.getColor(colorMap.get(occ.type.id)));
 
         if(occ.date == null)
             hour.setVisibility(View.GONE);
@@ -85,13 +90,8 @@ class CardOccurenceItem extends OccurenceItem {
 
         description.setText(occ.description);
 
-        if(occ.dispatchedCars.size() == 1) {
-            cars.setText("1 viatura a caminho.");
-        } else if (occ.dispatchedCars.size() > 1) {
-            cars.setText(occ.dispatchedCars.size()+ " viaturas a caminho.");
-        } else {
-            cars.setText("Nenhuma viatura a caminho.");
-        }
+        cars.setText(res.getQuantityString(R.plurals.cars_dispatched, occ.dispatchedCars.size(), occ.dispatchedCars.size()));
+
     }
 
     private String buildLocationString(Occurrence occ) {
