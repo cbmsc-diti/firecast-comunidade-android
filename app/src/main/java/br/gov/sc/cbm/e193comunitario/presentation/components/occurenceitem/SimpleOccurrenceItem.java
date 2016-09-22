@@ -1,6 +1,5 @@
-package br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist;
+package br.gov.sc.cbm.e193comunitario.presentation.components.occurenceitem;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,7 +9,7 @@ import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
 /**
  * Created by bonet on 9/21/16.
  */
-class SimpleOccurrenceItem extends OccurenceItem {
+public class SimpleOccurrenceItem extends OccurenceItem {
 
     Occurrence occ;
 

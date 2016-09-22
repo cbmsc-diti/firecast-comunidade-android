@@ -20,6 +20,10 @@ public interface OccurrenceListContract {
 
         void showError(String error);
 
+        void showLoading();
+
+        void hideLoading();
+
     }
 
     interface Presenter {

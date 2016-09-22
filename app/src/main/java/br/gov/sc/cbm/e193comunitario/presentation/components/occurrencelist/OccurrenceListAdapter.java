@@ -11,42 +11,36 @@ import java.util.List;
 
 import br.gov.sc.cbm.e193comunitario.R;
 import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
+import br.gov.sc.cbm.e193comunitario.presentation.components.occurenceitem.CardOccurenceItem;
+import br.gov.sc.cbm.e193comunitario.presentation.components.occurenceitem.OccurenceItem;
 
 /**
  * Created by bonet on 9/13/16.
  */
 
-public class OccurrenceListListView extends RecyclerView.Adapter<OccurenceItem> implements OccurrenceListContract.View {
+public class OccurrenceListAdapter extends RecyclerView.Adapter<OccurenceItem> {
     private static final String TAG = "OccurrenceListListView";
 
     List<Occurrence> occurrences;
 
-    public OccurrenceListListView() {
+    public OccurrenceListAdapter() {
         this(new ArrayList<>());
     }
 
-    public OccurrenceListListView(List<Occurrence> occs) {
+    public OccurrenceListAdapter(List<Occurrence> occs) {
         occurrences = occs;
     }
 
-    @Override
     public void updateOccurrences(List<Occurrence> occs) {
         this.occurrences = occs;
         this.notifyDataSetChanged();
     }
 
-    @Override
     public void addOccurrence(Occurrence occ) {
         occurrences.add(occ);
         this.notifyItemInserted(occurrences.size()-1);
     }
 
-    @Override
-    public void removeOccurrence(int occurrenceId) {
-        // TODO: implement later
-    }
-
-    @Override
     public void showError(String error) {
         Log.d(TAG, "showError() called with: error = [" + error + "]");
     }

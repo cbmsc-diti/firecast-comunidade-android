@@ -21,7 +21,7 @@
                 <!--<category android:name="android.intent.category.LAUNCHER"/>-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:name=".presentation.screens.list.OccurrenceListActivity">
+        <activity android:name=".presentation.screens.occurences.DisplayOccurrencesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

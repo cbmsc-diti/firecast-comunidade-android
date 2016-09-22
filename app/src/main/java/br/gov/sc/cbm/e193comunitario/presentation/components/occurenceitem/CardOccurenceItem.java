@@ -1,4 +1,4 @@
-package br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist;
+package br.gov.sc.cbm.e193comunitario.presentation.components.occurenceitem;
 
 import android.content.res.Resources;
 import android.view.View;
@@ -12,7 +12,7 @@ import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
  */
 
 
-class CardOccurenceItem extends OccurenceItem {
+public class CardOccurenceItem extends OccurenceItem {
 
     private static final String TAG = "CardOccurenceItem";
 
