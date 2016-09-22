@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,7 @@ import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
  * Created by bonet on 9/13/16.
  */
 
-public class OccurrenceListListView extends RecyclerView.Adapter<OccurrenceListListView.OccurrenceItem> implements OccurrenceListContract.View {
+public class OccurrenceListListView extends RecyclerView.Adapter<OccurenceItem> implements OccurrenceListContract.View {
     private static final String TAG = "OccurrenceListListView";
 
     List<Occurrence> occurrences;
@@ -53,15 +52,15 @@ public class OccurrenceListListView extends RecyclerView.Adapter<OccurrenceListL
     }
 
     @Override
-    public OccurrenceItem onCreateViewHolder(ViewGroup parent, int viewType) {
+    public OccurenceItem onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.occurrencelist_simpleoccurrenceitem, null, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.occurrencelist_cardoccurrenceitem, null, false);
 
-        return new OccurrenceItem(v);
+        return new CardOccurenceItem(v);
     }
 
     @Override
-    public void onBindViewHolder(OccurrenceItem holder, int position) {
+    public void onBindViewHolder(OccurenceItem holder, int position) {
         holder.setOccurrence(occurrences.get(position));
     }
 
@@ -71,34 +70,5 @@ public class OccurrenceListListView extends RecyclerView.Adapter<OccurrenceListL
         return occurrences.size();
     }
 
-
-    class OccurrenceItem extends RecyclerView.ViewHolder {
-
-        Occurrence occ;
-
-        TextView typeView;
-        TextView idView;
-        TextView descriptionView;
-
-        View v;
-
-        public OccurrenceItem(View itemView) {
-            super(itemView);
-
-            typeView = (TextView) itemView.findViewById(R.id.simpleoccurrenceitem__type);
-            idView = (TextView) itemView.findViewById(R.id.simpleoccurrenceitem__id);
-            descriptionView = (TextView) itemView.findViewById(R.id.simpleoccurrenceitem__description);
-
-        }
-
-        public void setOccurrence(Occurrence occ) {
-            this.occ = occ;
-
-            typeView.setText(occ.type);
-            idView.setText(""+occ.id);
-            descriptionView.setText(occ.history);
-        }
-
-    }
 
 }

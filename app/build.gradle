@@ -29,7 +29,7 @@ android {
 ext {
     retrofitVersion = '2.1.0'
     rxjavaVersion = '1.1.0'
-    supportVersion = '24.2.0'
+    supportVersion = '24.2.1'
 }
 
 dependencies {
@@ -41,6 +41,7 @@ dependencies {
 
 
     compile "com.android.support:appcompat-v7:$supportVersion"
+    compile "com.android.support:cardview-v7:$supportVersion"
     compile "com.android.support:design:$supportVersion"
     compile "com.android.support:recyclerview-v7:$supportVersion"
 
