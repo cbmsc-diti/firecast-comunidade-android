@@ -33,7 +33,7 @@ public class DisplayOccurrencesActivity extends AppCompatActivity {
         mapView = new OccurenceMapFragment();
         listView = new OccurrenceListFragment();
 
-        showMap();
+        showList();
     }
 
     @Override
