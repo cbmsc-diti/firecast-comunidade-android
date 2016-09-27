@@ -41,10 +41,6 @@ public class OccurrenceListAdapter extends RecyclerView.Adapter<OccurenceItem> {
         this.notifyItemInserted(occurrences.size()-1);
     }
 
-    public void showError(String error) {
-        Log.d(TAG, "showError() called with: error = [" + error + "]");
-    }
-
     @Override
     public OccurenceItem onCreateViewHolder(ViewGroup parent, int viewType) {
 

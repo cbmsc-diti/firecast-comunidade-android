@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/displayocurrences__action__switchviewmode"
+        android:title="Trocar view"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_view_list_white_36dp"
+        />
+
+    <item
+        android:id="@+id/displayocurrences__action__showfilter"
+        android:title="Mostrar filtro"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_filter_list_white_36dp"
+        />
+
+</menu>

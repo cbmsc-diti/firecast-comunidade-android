@@ -1,24 +1,53 @@
 package br.gov.sc.cbm.e193comunitario.presentation.screens.occurences;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import br.gov.sc.cbm.e193comunitario.R;
-import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.OccurrenceListContract;
+import br.gov.sc.cbm.e193comunitario.presentation.components.occurencesmap.OccurenceMapFragment;
 import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.OccurrenceListFragment;
 
 public class DisplayOccurrencesActivity extends AppCompatActivity {
 
+    private static final String TAG = "DisplayOccurrencesActiv";
+    Fragment mapView, listView;
+    boolean isMap;
+    MenuItem switcherItem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.occurrencelist__activity);
+        setContentView(R.layout.displayoccurences__activity);
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.occurencelist__fragmentholder, new OccurrenceListFragment())
-                .commit();
 
+        mapView = new OccurenceMapFragment();
+        listView = new OccurrenceListFragment();
+
+        showMap();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.displayoccurences__menu, menu);
+
+        switcherItem = menu.findItem(R.id.displayocurrences__action__switchviewmode);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId() == R.id.displayocurrences__action__switchviewmode) {
+            if (isMap) showList();
+            else showMap();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -29,6 +58,42 @@ public class DisplayOccurrencesActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
+    }
 
+    // TODO this should the fragments responsibility
+    private void showMap() {
+        Log.d(TAG, "showMap: ");
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.occurencelist__fragmentholder, mapView)
+                .commit();
+
+        isMap = true;
+
+        if(switcherItem!= null)
+            switcherItem.setIcon(R.drawable.ic_view_list_white_36dp);
+    }
+
+    // TODO this should the fragments responsibility
+    private void showList() {
+        Log.d(TAG, "showList: ");
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.occurencelist__fragmentholder, listView)
+                .commit();
+
+        isMap = false;
+
+        if (switcherItem != null) {
+            switcherItem.setIcon(R.drawable.ic_map_white_36dp);
+        }
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }
