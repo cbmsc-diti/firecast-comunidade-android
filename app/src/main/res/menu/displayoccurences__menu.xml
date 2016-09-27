@@ -6,12 +6,12 @@
         android:id="@+id/displayocurrences__action__switchviewmode"
         android:title="Trocar view"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_view_list_white_36dp"
+        android:icon="@drawable/ic_map_white_36dp"
         />
 
     <item
         android:id="@+id/displayocurrences__action__showfilter"
-        android:title="Mostrar filtro"
+        android:title="Filtrar"
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_filter_list_white_36dp"
         />

@@ -23,7 +23,8 @@
         android:id="@+id/displayoccurrences_filter"
         android:background="@color/white"
         android:layout_gravity="right|end"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:fitsSystemWindows="true">
 
         <TextView
             android:layout_width="match_parent"
