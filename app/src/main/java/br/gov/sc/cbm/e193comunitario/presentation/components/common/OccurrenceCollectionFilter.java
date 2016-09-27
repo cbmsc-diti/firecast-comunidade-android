@@ -10,11 +10,6 @@ import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
 
 public class OccurrenceCollectionFilter {
 
-
-    public List<Occurrence> filterMany(List<Occurrence> occ) {
-        return occ;
-    }
-
     public boolean filter(Occurrence occ) {
         return true;
     }

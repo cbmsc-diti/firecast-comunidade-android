@@ -1,8 +1,11 @@
 package br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -26,6 +29,7 @@ public class OccurrenceListFragment extends Fragment implements OccurenceColleti
 
     private OccurrenceListContract.Presenter presenter;
 
+    private SwipeRefreshLayout refreshLayout;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +42,12 @@ public class OccurrenceListFragment extends Fragment implements OccurenceColleti
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v =  inflater.inflate(R.layout.occurrencelist__fragment, container, false);
-        RecyclerView rv = (RecyclerView) v.findViewById(R.id.occurencemap__map);
+        RecyclerView rv = (RecyclerView) v.findViewById(R.id.occurencelist__list);
+
+        refreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.occurencelist__refresher);
+
+
+        refreshLayout.setOnRefreshListener(presenter::refreshData);
 
         rv.setLayoutManager(new LinearLayoutManager(rv.getContext()));
 
@@ -79,16 +88,30 @@ public class OccurrenceListFragment extends Fragment implements OccurenceColleti
 
     @Override
     public void showError(String error) {
-
+        new AlertDialog.Builder(getContext())
+                .setTitle("Algum erro aconteceu")
+                .setMessage(error)
+                .setCancelable(true)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
     }
 
     @Override
     public void showLoading() {
+
+        if (refreshLayout != null)
+            refreshLayout.setRefreshing(true);
 
     }
 
     @Override
     public void hideLoading() {
 
+        if (refreshLayout != null)
+            refreshLayout.setRefreshing(false);
     }
 }

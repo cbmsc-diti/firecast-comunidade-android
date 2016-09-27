@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
 import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurenceColletionView;
+import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurrenceCollectionFilter;
 
 /**
  * Created by bonet on 9/13/16.
@@ -19,7 +20,7 @@ public interface OccurrenceListContract {
 
         void refreshData();
 
-        void updateFilter();
+        void updateFilter(OccurrenceCollectionFilter filter);
 
     }
 
