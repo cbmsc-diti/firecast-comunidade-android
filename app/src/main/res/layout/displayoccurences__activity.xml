@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    android:id="@+id/occurencelist__fragmentholder"
+
+<android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.DisplayOccurrencesActivity"
-    >
+    android:fitsSystemWindows="true"
+    tools:openDrawer="end">
 
-</FrameLayout>
+    <FrameLayout
+        android:id="@+id/displayoccurrences__fragmentholder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.DisplayOccurrencesActivity"
+        >
+    </FrameLayout>
+
+    <br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.filter.FilterView
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:id="@+id/displayoccurrences_filter"
+        android:background="@color/white"
+        android:layout_gravity="right|end"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Aqui vai o filtro"/>
+
+    </br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.filter.FilterView>
+
+
+
+</android.support.v4.widget.DrawerLayout>
