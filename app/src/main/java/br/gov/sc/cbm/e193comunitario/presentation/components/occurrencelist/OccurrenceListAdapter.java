@@ -1,7 +1,6 @@
 package br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +27,9 @@ public class OccurrenceListAdapter extends RecyclerView.Adapter<OccurenceItem> {
     }
 
     public OccurrenceListAdapter(List<Occurrence> occs) {
-        occurrences = occs;
+
+        this.occurrences = occs;
+
     }
 
     public void updateOccurrences(List<Occurrence> occs) {
@@ -44,21 +45,20 @@ public class OccurrenceListAdapter extends RecyclerView.Adapter<OccurenceItem> {
     @Override
     public OccurenceItem onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.occurrencelist_cardoccurrenceitem, null, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.occurrencelist__carditem, null, false);
 
         return new CardOccurenceItem(v);
     }
+
 
     @Override
     public void onBindViewHolder(OccurenceItem holder, int position) {
         holder.setOccurrence(occurrences.get(position));
     }
 
-
     @Override
     public int getItemCount() {
         return occurrences.size();
     }
-
 
 }

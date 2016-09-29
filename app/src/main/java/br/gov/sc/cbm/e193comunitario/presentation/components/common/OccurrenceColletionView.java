@@ -8,7 +8,7 @@ import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
  * Created by bonet on 9/27/16.
  */
 
-public interface OccurenceColletionView {
+public interface OccurrenceColletionView {
 
     void updateOccurrences(List<Occurrence> occ);
 

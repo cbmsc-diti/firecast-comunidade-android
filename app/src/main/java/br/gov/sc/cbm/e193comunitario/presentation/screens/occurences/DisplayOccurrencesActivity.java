@@ -2,7 +2,6 @@ package br.gov.sc.cbm.e193comunitario.presentation.screens.occurences;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,10 +10,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import br.gov.sc.cbm.e193comunitario.R;
-import br.gov.sc.cbm.e193comunitario.presentation.components.occurencesmap.OccurenceMapFragment;
+import br.gov.sc.cbm.e193comunitario.presentation.components.occurencesmap.OccurrenceMapFragment;
 import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.OccurrenceListFragment;
+import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.OccurrenceSelectedEvent;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurencedetail.OccurrenceDetailActivity;
+import br.gov.sc.cbm.e193comunitario.util.RxBus;
+import rx.subscriptions.CompositeSubscription;
 
-public class DisplayOccurrencesActivity extends AppCompatActivity {
+public class DisplayOccurrencesActivity extends AppCompatActivity{
 
     private static final String TAG = "DisplayOccurrencesActiv";
     Fragment mapView, listView;
@@ -23,6 +26,8 @@ public class DisplayOccurrencesActivity extends AppCompatActivity {
 
     DrawerLayout drawer;
 
+    CompositeSubscription subs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +35,12 @@ public class DisplayOccurrencesActivity extends AppCompatActivity {
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        mapView = new OccurenceMapFragment();
+        mapView = new OccurrenceMapFragment();
         listView = new OccurrenceListFragment();
 
         showList();
+
+        subs = new CompositeSubscription();
     }
 
     @Override
@@ -61,6 +68,7 @@ public class DisplayOccurrencesActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
     }
 
     @Override
@@ -112,4 +120,5 @@ public class DisplayOccurrencesActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
+
 }

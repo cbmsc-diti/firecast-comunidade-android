@@ -12,7 +12,7 @@ import java.util.List;
 import br.gov.sc.cbm.e193comunitario.R;
 import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
 import br.gov.sc.cbm.e193comunitario.injection.Injector;
-import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurenceColletionView;
+import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurrenceColletionView;
 import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.OccurrenceListAdapter;
 import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.OccurrenceListContract;
 import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.OccurrenceListPresenter;
@@ -21,7 +21,7 @@ import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.Occu
  * Created by bonet on 9/22/16.
  */
 
-public class OccurenceMapFragment extends Fragment implements OccurenceColletionView {
+public class OccurrenceMapFragment extends Fragment implements OccurrenceColletionView {
 
     private OccurrenceListAdapter adapter;
 
@@ -31,7 +31,7 @@ public class OccurenceMapFragment extends Fragment implements OccurenceColletion
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        presenter = new OccurrenceListPresenter(Injector.get().provideOccurrenceRepo());
+        presenter = new OccurrenceListPresenter(Injector.get().provideOccurrenceRepo(), null);
     }
 
     @Nullable

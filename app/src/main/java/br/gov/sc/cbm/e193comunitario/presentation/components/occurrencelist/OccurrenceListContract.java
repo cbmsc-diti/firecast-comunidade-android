@@ -1,9 +1,6 @@
 package br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist;
 
-import java.util.List;
-
-import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
-import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurenceColletionView;
+import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurrenceColletionView;
 import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurrenceCollectionFilter;
 
 /**
@@ -14,7 +11,7 @@ public interface OccurrenceListContract {
 
     interface Presenter {
 
-        void attach(OccurenceColletionView v);
+        void attach(OccurrenceColletionView v);
 
         void dettach();
 
@@ -23,5 +20,14 @@ public interface OccurrenceListContract {
         void updateFilter(OccurrenceCollectionFilter filter);
 
     }
+
+    interface Navigator {
+        void openDetail(int occurenceID);
+    }
+
+    interface OpenOccurenceDetailListener {
+        void onOpenOccurenceDetail(int occurenceID);
+    }
+
 
 }

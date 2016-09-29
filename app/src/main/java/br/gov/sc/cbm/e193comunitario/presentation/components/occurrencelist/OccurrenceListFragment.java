@@ -17,24 +17,26 @@ import java.util.List;
 import br.gov.sc.cbm.e193comunitario.R;
 import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
 import br.gov.sc.cbm.e193comunitario.injection.Injector;
-import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurenceColletionView;
+import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurrenceColletionView;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurencedetail.OccurrenceDetailActivity;
 
 /**
  * Created by bonet on 9/22/16.
  */
 
-public class OccurrenceListFragment extends Fragment implements OccurenceColletionView {
+public class OccurrenceListFragment extends Fragment implements OccurrenceColletionView, OccurrenceListContract.Navigator {
 
     private OccurrenceListAdapter adapter;
 
     private OccurrenceListContract.Presenter presenter;
 
     private SwipeRefreshLayout refreshLayout;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        presenter = new OccurrenceListPresenter(Injector.get().provideOccurrenceRepo());
+        presenter = new OccurrenceListPresenter(Injector.get().provideOccurrenceRepo(), this);
     }
 
     @Nullable
@@ -45,7 +47,6 @@ public class OccurrenceListFragment extends Fragment implements OccurenceColleti
         RecyclerView rv = (RecyclerView) v.findViewById(R.id.occurencelist__list);
 
         refreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.occurencelist__refresher);
-
 
         refreshLayout.setOnRefreshListener(presenter::refreshData);
 
@@ -113,5 +114,11 @@ public class OccurrenceListFragment extends Fragment implements OccurenceColleti
 
         if (refreshLayout != null)
             refreshLayout.setRefreshing(false);
+    }
+
+    // TODO: Navigation should be the activities responsibility
+    @Override
+    public void openDetail(int occurenceID) {
+        getActivity().startActivity(OccurrenceDetailActivity.buildIntent(getContext(), occurenceID));
     }
 }

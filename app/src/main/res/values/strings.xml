@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">FirecastComunidade</string>
-    
-    
+
+
     <plurals name="cars_dispatched">
         <item quantity="zero">Nenhuma viatura a caminho</item>
         <item quantity="one">Uma viatura a caminho</item>

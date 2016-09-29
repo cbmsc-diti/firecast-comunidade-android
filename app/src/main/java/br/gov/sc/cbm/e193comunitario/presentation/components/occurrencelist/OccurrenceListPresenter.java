@@ -2,12 +2,12 @@ package br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist;
 
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
 import br.gov.sc.cbm.e193comunitario.domain.OccurrenceRepository;
-import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurenceColletionView;
+import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurrenceColletionView;
 import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurrenceCollectionFilter;
+import br.gov.sc.cbm.e193comunitario.util.RxBus;
 import rx.Observable;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -20,7 +20,7 @@ import rx.subscriptions.CompositeSubscription;
 
 public class OccurrenceListPresenter implements OccurrenceListContract.Presenter {
 
-    private OccurenceColletionView view;
+    private OccurrenceColletionView view;
 
     private OccurrenceRepository repo;
 
@@ -30,24 +30,33 @@ public class OccurrenceListPresenter implements OccurrenceListContract.Presenter
 
     private OccurrenceCollectionFilter filter;
 
-    public OccurrenceListPresenter(OccurrenceRepository repo, OccurrenceCollectionFilter filter) {
+    private OccurrenceListContract.Navigator nav;
+
+    public OccurrenceListPresenter(OccurrenceRepository repo, OccurrenceListContract.Navigator nav, OccurrenceCollectionFilter filter) {
         this.repo = repo;
         this.filter = filter;
 
         subs = new CompositeSubscription();
 
+        this.nav = nav;
     }
 
 
-    public OccurrenceListPresenter(OccurrenceRepository repo) {
-        this(repo, new OccurrenceCollectionFilter());
+    public OccurrenceListPresenter(OccurrenceRepository repo, OccurrenceListContract.Navigator nav) {
+        this(repo, nav, new OccurrenceCollectionFilter());
+
     }
 
     @Override
-    public void attach(OccurenceColletionView v) {
+    public void attach(OccurrenceColletionView v) {
 
         view = v;
         loadData(false, this.filter, this.data);
+
+        subs.add(RxBus.listen()
+                .filter(o -> o instanceof OccurrenceSelectedEvent)
+                .subscribe(ev -> nav.openDetail(((OccurrenceSelectedEvent)ev).occurrenceID))
+        );
     }
 
     @Override
@@ -85,13 +94,14 @@ public class OccurrenceListPresenter implements OccurrenceListContract.Presenter
                 .observeOn(AndroidSchedulers.mainThread()) // A partir daqui tudo ocorre na mainthread
                 .subscribe(
                         view::updateOccurrences,
-                        err -> view.showError("Ocorreu um erro"),
+                        err -> {
+                            view.showError("Ocorreu um erro");
+                            err.printStackTrace();
+                        },
                         view::hideLoading
                 );
 
         subs.add(s);
-
-
     }
 
 

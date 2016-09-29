@@ -2,7 +2,6 @@
 <manifest package="br.gov.sc.cbm.e193comunitario"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -12,14 +11,14 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
         <activity android:name=".presentation.screens.map.MapActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".presentation.screens.occurences.DisplayOccurrencesActivity">
             <intent-filter>
@@ -27,6 +26,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".presentation.screens.occurencedetail.OccurrenceDetailActivity">
         </activity>
     </application>
 

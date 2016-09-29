@@ -2,10 +2,14 @@ package br.gov.sc.cbm.e193comunitario.presentation.components.occurenceitem;
 
 import android.content.res.Resources;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import br.gov.sc.cbm.e193comunitario.R;
 import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
+import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.OccurrenceListAdapter;
+import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.OccurrenceSelectedEvent;
+import br.gov.sc.cbm.e193comunitario.util.RxBus;
 
 /**
  * Created by bonet on 9/21/16.
@@ -21,6 +25,7 @@ public class CardOccurenceItem extends OccurenceItem {
     TextView type, hour, distance, location, reference, city, description, cars;
 
     View v;
+;
 
     public CardOccurenceItem(View itemView) {
         super(itemView);
@@ -35,6 +40,12 @@ public class CardOccurenceItem extends OccurenceItem {
         city = (TextView) itemView.findViewById(R.id.cardoccurrenceitem__city);
         description = (TextView) itemView.findViewById(R.id.cardoccurrenceitem__description);
         cars = (TextView) itemView.findViewById(R.id.cardoccurrenceitem__cars);
+
+
+        v.findViewById(R.id.cardoccurrenceitem__detailed).setOnClickListener(
+                view -> RxBus.emmit(new OccurrenceSelectedEvent(occ.id))
+        );
+
     }
 
     public void setOccurrence(Occurrence occ) {

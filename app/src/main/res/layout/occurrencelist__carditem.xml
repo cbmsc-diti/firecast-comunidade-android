@@ -168,12 +168,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Navegar"
+                android:id="@+id/cardoccurrenceitem__navigate"
                 style="@style/Widget.AppCompat.Button.Borderless"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Detalhes"
+                android:id="@+id/cardoccurrenceitem__detailed"
                 style="@style/Widget.AppCompat.Button.Borderless"/>
 
         </LinearLayout>
