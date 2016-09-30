@@ -13,11 +13,11 @@
         android:id="@+id/displayoccurrences__fragmentholder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.DisplayOccurrencesActivity"
+        tools:context="br.gov.sc.cbm.fccomunidade.presentation.screens.occurences.DisplayOccurrencesActivity"
         >
     </FrameLayout>
 
-    <br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.filter.FilterView
+    <br.gov.sc.cbm.fccomunidade.presentation.screens.occurences.filter.FilterView
         android:layout_width="240dp"
         android:layout_height="match_parent"
         android:id="@+id/displayoccurrences_filter"
@@ -31,7 +31,7 @@
             android:layout_height="match_parent"
             android:text="Aqui vai o filtro"/>
 
-    </br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.filter.FilterView>
+    </br.gov.sc.cbm.fccomunidade.presentation.screens.occurences.filter.FilterView>
 
 
 

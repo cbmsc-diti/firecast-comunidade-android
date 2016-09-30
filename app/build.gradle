@@ -13,7 +13,26 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    productFlavors {
+        // Define separate dev and prod product flavors.
+
+        mock {
+            minSdkVersion 21
+        }
+
+        dev {
+            minSdkVersion 21
+        }
+
+        prod {
+            // The actual minSdkVersion for the application.
+
+        }
+    }
+
     buildTypes {
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -29,6 +48,7 @@ android {
 ext {
     retrofitVersion = '2.1.0'
     rxjavaVersion = '1.1.0'
+    okhttpVersion = '3.3.0'
     supportVersion = '24.2.1'
 }
 
@@ -51,6 +71,7 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     compile "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
+    testCompile "com.squareup.okhttp3:mockwebserver:$okhttpVersion"
     compile 'io.reactivex:rxandroid:1.2.1'
 
 }
