@@ -15,8 +15,7 @@ public class AppProvider implements Provider {
     private FirecastMockClient client;
 
     public  AppProvider(Context context) {
-
-        this.client = new FirecastMockClient(context);
+        this.client = new FirecastMockClient();
     }
 
     @Override
