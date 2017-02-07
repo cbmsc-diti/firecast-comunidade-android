@@ -1,4 +1,4 @@
-package br.gov.sc.cbm.e193comunitario.presentation.components.common;
+package br.gov.sc.cbm.e193comunitario.presentation.screens.occurences;
 
 import java.util.List;
 

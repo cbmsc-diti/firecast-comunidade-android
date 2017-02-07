@@ -1,4 +1,4 @@
-package br.gov.sc.cbm.e193comunitario.presentation.components.occurenceitem;
+package br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.occurenceitem;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

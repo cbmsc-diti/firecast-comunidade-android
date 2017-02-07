@@ -2,7 +2,6 @@ package br.gov.sc.cbm.e193comunitario.presentation.screens.occurences;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,8 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import br.gov.sc.cbm.e193comunitario.R;
-import br.gov.sc.cbm.e193comunitario.presentation.components.occurencesmap.OccurenceMapFragment;
-import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.OccurrenceListFragment;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.occurencesmap.OccurenceMapFragment;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.occurrencelist.OccurrenceListFragment;
 
 public class DisplayOccurrencesActivity extends AppCompatActivity {
 

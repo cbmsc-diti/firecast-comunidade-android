@@ -1,6 +1,5 @@
-package br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist;
+package br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.occurrencelist;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,7 +17,7 @@ import java.util.List;
 import br.gov.sc.cbm.e193comunitario.R;
 import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
 import br.gov.sc.cbm.e193comunitario.injection.Injector;
-import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurenceColletionView;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.OccurenceColletionView;
 
 /**
  * Created by bonet on 9/22/16.

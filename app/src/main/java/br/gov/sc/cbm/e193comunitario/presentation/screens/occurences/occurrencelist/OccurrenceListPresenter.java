@@ -1,4 +1,4 @@
-package br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist;
+package br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.occurrencelist;
 
 
 import org.greenrobot.eventbus.EventBus;
@@ -10,8 +10,8 @@ import br.gov.sc.cbm.e193comunitario.data.events.OccurrencesFailedLoading;
 import br.gov.sc.cbm.e193comunitario.data.events.OcurrencesFinishedLoading;
 import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
 import br.gov.sc.cbm.e193comunitario.domain.OccurrenceRepository;
-import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurenceColletionView;
-import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurrenceCollectionFilter;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.OccurenceColletionView;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.OccurrenceCollectionFilter;
 import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.events.FilterUpdated;
 
 /**

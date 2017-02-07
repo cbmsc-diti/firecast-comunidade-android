@@ -1,4 +1,4 @@
-package br.gov.sc.cbm.e193comunitario.presentation.components.occurenceitem;
+package br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.occurenceitem;
 
 import android.view.View;
 import android.widget.TextView;
