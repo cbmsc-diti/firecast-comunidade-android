@@ -11,8 +11,8 @@ import br.gov.sc.cbm.e193comunitario.data.events.OcurrencesFinishedLoading;
 import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
 import br.gov.sc.cbm.e193comunitario.domain.OccurrenceRepository;
 import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.OccurenceColletionView;
-import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.OccurrenceCollectionFilter;
-import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.events.FilterUpdated;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.OccurrenceFilter;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.events.FilterUpdatedEvent;
 
 /**
  * Created by bonet on 9/13/16.
@@ -26,16 +26,16 @@ public class OccurrenceListPresenter implements OccurrenceListContract.Presenter
 
     private List<Occurrence> data;
 
-    private OccurrenceCollectionFilter filter;
+    private OccurrenceFilter filter;
 
-    public OccurrenceListPresenter(OccurrenceRepository repo, OccurrenceCollectionFilter filter) {
+    public OccurrenceListPresenter(OccurrenceRepository repo, OccurrenceFilter filter) {
         this.repo = repo;
         this.filter = filter;
     }
 
 
     public OccurrenceListPresenter(OccurrenceRepository repo) {
-        this(repo, new OccurrenceCollectionFilter());
+        this(repo, new OccurrenceFilter());
     }
 
     @Override
@@ -59,16 +59,7 @@ public class OccurrenceListPresenter implements OccurrenceListContract.Presenter
         loadData(true, filter, null);
     }
 
-
-    @Override
-    public void updateFilter(OccurrenceCollectionFilter filter) {
-        this.filter = filter;
-
-        loadData(false, this.filter, this.data);
-    }
-
-
-    private void loadData(boolean refresh, OccurrenceCollectionFilter filter, List<Occurrence> dt) {
+    private void loadData(boolean refresh, OccurrenceFilter filter, List<Occurrence> dt) {
 
         if(refresh || dt == null) {
             repo.getOccurrences();
@@ -93,10 +84,12 @@ public class OccurrenceListPresenter implements OccurrenceListContract.Presenter
     }
 
     @Subscribe
-    public void respondTo(FilterUpdated event) {
+    public void respondTo(FilterUpdatedEvent event) {
 
-        // this.loadData .....
         view.showMessage("Filter was updated");
+//        this.filter = filter;
+//        loadData(false, this.filter, this.data);
+
     }
 
 

@@ -1,7 +1,7 @@
 package br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.occurrencelist;
 
 import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.OccurenceColletionView;
-import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.OccurrenceCollectionFilter;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.OccurrenceFilter;
 
 /**
  * Created by bonet on 9/13/16.
@@ -16,8 +16,6 @@ public interface OccurrenceListContract {
         void dettach();
 
         void refreshData();
-
-        void updateFilter(OccurrenceCollectionFilter filter);
 
     }
 
