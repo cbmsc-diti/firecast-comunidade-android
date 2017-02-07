@@ -1,7 +1,6 @@
-package br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist;
+package br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.occurrencelist;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +10,8 @@ import java.util.List;
 
 import br.gov.sc.cbm.e193comunitario.R;
 import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
-import br.gov.sc.cbm.e193comunitario.presentation.components.occurenceitem.CardOccurenceItem;
-import br.gov.sc.cbm.e193comunitario.presentation.components.occurenceitem.OccurenceItem;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.occurenceitem.CardOccurenceItem;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.occurenceitem.OccurenceItem;
 
 /**
  * Created by bonet on 9/13/16.

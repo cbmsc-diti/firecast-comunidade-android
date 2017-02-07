@@ -1,6 +1,5 @@
-package br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist;
+package br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.occurrencelist;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,13 +10,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.List;
 
 import br.gov.sc.cbm.e193comunitario.R;
 import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
 import br.gov.sc.cbm.e193comunitario.injection.Injector;
-import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurenceColletionView;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.OccurenceColletionView;
 
 /**
  * Created by bonet on 9/22/16.
@@ -73,45 +73,49 @@ public class OccurrenceListFragment extends Fragment implements OccurenceColleti
 
     @Override
     public void updateOccurrences(List<Occurrence> occs) {
-        adapter.updateOccurrences(occs);
-    }
-
-    @Override
-    public void addOccurrence(Occurrence occ) {
-        adapter.addOccurrence(occ);
-    }
-
-    @Override
-    public void removeOccurrence(int occurrenceId) {
-
+        runOnUi(() ->adapter.updateOccurrences(occs));
     }
 
     @Override
     public void showError(String error) {
-        new AlertDialog.Builder(getContext())
-                .setTitle("Algum erro aconteceu")
-                .setMessage(error)
-                .setCancelable(true)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-                .show();
+
+        runOnUi(() ->
+                new AlertDialog.Builder(getContext())
+                    .setTitle("Algum erro aconteceu")
+                    .setMessage(error)
+                    .setCancelable(true)
+                    .setPositiveButton(android.R.string.yes, (dialog, which) -> dialog.dismiss())
+                    .show()
+        );
+
     }
 
     @Override
     public void showLoading() {
-
-        if (refreshLayout != null)
-            refreshLayout.setRefreshing(true);
+        getActivity().runOnUiThread(() -> {
+            if (refreshLayout != null)
+                refreshLayout.setRefreshing(true);
+        });
 
     }
 
     @Override
     public void hideLoading() {
 
-        if (refreshLayout != null)
-            refreshLayout.setRefreshing(false);
+        runOnUi(() -> {
+            if (refreshLayout != null)
+                refreshLayout.setRefreshing(false);
+        });
     }
+
+    @Override
+    public void showMessage(String message) {
+        runOnUi(() -> Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show());
+
+    }
+
+    private void runOnUi(Runnable r) {
+        getActivity().runOnUiThread(r);
+    }
+
 }

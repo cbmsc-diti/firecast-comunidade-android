@@ -1,4 +1,4 @@
-package br.gov.sc.cbm.e193comunitario.presentation.components.occurencesmap;
+package br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.occurencesmap;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,10 +12,10 @@ import java.util.List;
 import br.gov.sc.cbm.e193comunitario.R;
 import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
 import br.gov.sc.cbm.e193comunitario.injection.Injector;
-import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurenceColletionView;
-import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.OccurrenceListAdapter;
-import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.OccurrenceListContract;
-import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.OccurrenceListPresenter;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.OccurenceColletionView;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.occurrencelist.OccurrenceListAdapter;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.occurrencelist.OccurrenceListContract;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.occurrencelist.OccurrenceListPresenter;
 
 /**
  * Created by bonet on 9/22/16.
@@ -59,15 +59,6 @@ public class OccurenceMapFragment extends Fragment implements OccurenceColletion
     }
 
     @Override
-    public void addOccurrence(Occurrence occ) {
-    }
-
-    @Override
-    public void removeOccurrence(int occurrenceId) {
-
-    }
-
-    @Override
     public void showError(String error) {
 
     }
@@ -79,6 +70,11 @@ public class OccurenceMapFragment extends Fragment implements OccurenceColletion
 
     @Override
     public void hideLoading() {
+
+    }
+
+    @Override
+    public void showMessage(String message) {
 
     }
 }

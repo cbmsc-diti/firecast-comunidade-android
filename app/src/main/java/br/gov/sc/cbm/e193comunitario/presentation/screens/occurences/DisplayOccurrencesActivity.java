@@ -10,8 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import br.gov.sc.cbm.e193comunitario.R;
-import br.gov.sc.cbm.e193comunitario.presentation.components.occurencesmap.OccurenceMapFragment;
-import br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist.OccurrenceListFragment;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.occurencesmap.OccurenceMapFragment;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.occurrencelist.OccurrenceListFragment;
 
 public class DisplayOccurrencesActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package br.gov.sc.cbm.e193comunitario.presentation.components.common;
+package br.gov.sc.cbm.e193comunitario.presentation.screens.occurences;
 
 import java.util.List;
 
@@ -12,14 +12,11 @@ public interface OccurenceColletionView {
 
     void updateOccurrences(List<Occurrence> occ);
 
-    void addOccurrence(Occurrence occ);
-
-    void removeOccurrence(int occurrenceId);
-
     void showError(String error);
 
     void showLoading();
 
     void hideLoading();
 
+    void showMessage(String message);
 }
