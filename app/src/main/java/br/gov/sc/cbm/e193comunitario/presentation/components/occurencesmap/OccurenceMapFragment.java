@@ -59,15 +59,6 @@ public class OccurenceMapFragment extends Fragment implements OccurenceColletion
     }
 
     @Override
-    public void addOccurrence(Occurrence occ) {
-    }
-
-    @Override
-    public void removeOccurrence(int occurrenceId) {
-
-    }
-
-    @Override
     public void showError(String error) {
 
     }
@@ -79,6 +70,11 @@ public class OccurenceMapFragment extends Fragment implements OccurenceColletion
 
     @Override
     public void hideLoading() {
+
+    }
+
+    @Override
+    public void showMessage(String message) {
 
     }
 }

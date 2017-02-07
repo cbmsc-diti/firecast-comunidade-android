@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
  * Created by bonet on 9/27/16.
  */
 
-public class FilterView extends LinearLayout implements FilterContract.View {
+public class FilterView extends LinearLayout {
 
     public FilterView(Context context) {
         super(context);
@@ -29,11 +29,5 @@ public class FilterView extends LinearLayout implements FilterContract.View {
     public FilterView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
-
-
-
-
-
-
 
 }

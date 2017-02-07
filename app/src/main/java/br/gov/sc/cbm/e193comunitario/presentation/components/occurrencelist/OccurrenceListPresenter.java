@@ -1,18 +1,18 @@
 package br.gov.sc.cbm.e193comunitario.presentation.components.occurrencelist;
 
 
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
+import java.util.List;
+
+import br.gov.sc.cbm.e193comunitario.data.events.OccurrencesFailedLoading;
+import br.gov.sc.cbm.e193comunitario.data.events.OcurrencesFinishedLoading;
 import br.gov.sc.cbm.e193comunitario.domain.Occurrence;
 import br.gov.sc.cbm.e193comunitario.domain.OccurrenceRepository;
 import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurenceColletionView;
 import br.gov.sc.cbm.e193comunitario.presentation.components.common.OccurrenceCollectionFilter;
-import rx.Observable;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
-import rx.subscriptions.CompositeSubscription;
+import br.gov.sc.cbm.e193comunitario.presentation.screens.occurences.events.FilterUpdated;
 
 /**
  * Created by bonet on 9/13/16.
@@ -24,8 +24,6 @@ public class OccurrenceListPresenter implements OccurrenceListContract.Presenter
 
     private OccurrenceRepository repo;
 
-    private CompositeSubscription subs;
-
     private List<Occurrence> data;
 
     private OccurrenceCollectionFilter filter;
@@ -33,9 +31,6 @@ public class OccurrenceListPresenter implements OccurrenceListContract.Presenter
     public OccurrenceListPresenter(OccurrenceRepository repo, OccurrenceCollectionFilter filter) {
         this.repo = repo;
         this.filter = filter;
-
-        subs = new CompositeSubscription();
-
     }
 
 
@@ -46,6 +41,7 @@ public class OccurrenceListPresenter implements OccurrenceListContract.Presenter
     @Override
     public void attach(OccurenceColletionView v) {
 
+        EventBus.getDefault().register(this);
         view = v;
         loadData(false, this.filter, this.data);
     }
@@ -54,8 +50,8 @@ public class OccurrenceListPresenter implements OccurrenceListContract.Presenter
     public void dettach() {
         view = null;
 
-        if(subs.hasSubscriptions())
-            subs.unsubscribe();
+        EventBus.getDefault().unregister(this);
+
     }
 
     @Override
@@ -73,26 +69,38 @@ public class OccurrenceListPresenter implements OccurrenceListContract.Presenter
 
 
     private void loadData(boolean refresh, OccurrenceCollectionFilter filter, List<Occurrence> dt) {
-        subs.clear();
 
-        Subscription s = ((refresh || data == null)? this.repo.getOccurrences():Observable.just(dt))
-                .subscribeOn(Schedulers.computation()) // A partir daqui tudo ocorre na Thread de computação
-                .doOnSubscribe(view::showLoading) // Mostra loading na view
-                .doOnNext(occ -> this.data = occ) // Salva dados recebidos
-                .flatMap(Observable::from) // Começa a operar sobre os elementos da lista
-                .filter(filter::filter) // Filtra cada elemento
-                .toList() // Volta a ser lista
-                .observeOn(AndroidSchedulers.mainThread()) // A partir daqui tudo ocorre na mainthread
-                .subscribe(
-                        view::updateOccurrences,
-                        err -> view.showError("Ocorreu um erro"),
-                        view::hideLoading
-                );
-
-        subs.add(s);
-
+        if(refresh || dt == null) {
+            repo.getOccurrences();
+            view.showLoading();
+        } else {
+            view.updateOccurrences(dt);
+        }
 
     }
+
+    @Subscribe
+    public void respondTo(OcurrencesFinishedLoading event) {
+        this.data = event.occurrences;
+        view.updateOccurrences(this.data);
+        view.hideLoading();
+    }
+
+    @Subscribe
+    public void respondTo(OccurrencesFailedLoading event) {
+        view.showError("Ops, aconteceu um erro :(");
+        view.hideLoading();
+    }
+
+    @Subscribe
+    public void respondTo(FilterUpdated event) {
+
+        // this.loadData .....
+        view.showMessage("Filter was updated");
+    }
+
+
+
 
 
 }

@@ -12,14 +12,11 @@ public interface OccurenceColletionView {
 
     void updateOccurrences(List<Occurrence> occ);
 
-    void addOccurrence(Occurrence occ);
-
-    void removeOccurrence(int occurrenceId);
-
     void showError(String error);
 
     void showLoading();
 
     void hideLoading();
 
+    void showMessage(String message);
 }
