@@ -1,10 +1,9 @@
 package br.gov.sc.cbm.e193comunitario.presentation.screens.occurences;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -71,8 +70,17 @@ public class DisplayOccurrencesActivity extends AppCompatActivity {
     private void showFilter() {
         if (drawer.isDrawerOpen(Gravity.RIGHT)) {
             drawer.closeDrawer(Gravity.RIGHT);
+            if(switcherItem!= null) {
+                switcherItem.setEnabled(true);
+                switcherItem.setVisible(true);
+            }
         } else {
             drawer.openDrawer(Gravity.RIGHT);
+            if(switcherItem!= null) {
+                switcherItem.setEnabled(false);
+                switcherItem.setVisible(false);
+            }
+
         }
     }
 
